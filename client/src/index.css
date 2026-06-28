@@ -1,0 +1,207 @@
+/* Import Modern Typography - MUST BE AT TOP */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  
+  --color-brand-bg: #070913;
+  --color-glass-card: rgba(13, 17, 30, 0.45);
+  --color-glass-border-light: rgba(255, 255, 255, 0.06);
+  --color-glass-border-dark: rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Global resets & styling */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-bg);
+  color: #f3f4f6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism Card Style */
+.glass-panel {
+  background: var(--color-glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border-light);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel-interactive {
+  background: var(--color-glass-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border-light);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Input Styling */
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.glass-input:focus {
+  border-color: #8b5cf6;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+/* Ambient Radial Glows */
+.bg-glow-purple {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(40px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-glow-blue {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  filter: blur(50px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* State Indicators */
+.state-pending {
+  border-color: rgba(156, 163, 175, 0.3);
+  color: #9ca3af;
+  background: rgba(156, 163, 175, 0.05);
+}
+
+.state-completed {
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.state-missed {
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+/* Custom Clock Glow */
+.clock-glow {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+/* ==========================================================================
+   LIGHT THEME OVERRIDES
+   ========================================================================== */
+.light {
+  --color-brand-bg: #f8fafc;
+  --color-glass-card: rgba(255, 255, 255, 0.75);
+  --color-glass-border-light: rgba(15, 23, 42, 0.08);
+  --color-glass-border-dark: rgba(255, 255, 255, 0.8);
+}
+
+.light body {
+  background-color: var(--color-brand-bg);
+  color: #0f172a;
+}
+
+.light .glass-panel {
+  background: var(--color-glass-card);
+  border-color: var(--color-glass-border-light);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04);
+}
+
+.light .glass-panel-interactive {
+  background: var(--color-glass-card);
+  border-color: var(--color-glass-border-light);
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.04);
+}
+
+.light .glass-panel-interactive:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.08);
+}
+
+.light .glass-input {
+  background: rgba(15, 23, 42, 0.02);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #0f172a;
+}
+
+.light .glass-input:focus {
+  background: #ffffff;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.1);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.light .state-pending {
+  border-color: rgba(107, 114, 128, 0.2);
+  color: #4b5563;
+  background: rgba(107, 114, 128, 0.03);
+}
+
+.light .state-completed {
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #059669;
+  background: rgba(16, 185, 129, 0.03);
+}
+
+.light .state-missed {
+  border-color: rgba(220, 38, 38, 0.25);
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.03);
+}
+
+.light .clock-glow {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.light .bg-glow-purple {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.06) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.light .bg-glow-blue {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+}
